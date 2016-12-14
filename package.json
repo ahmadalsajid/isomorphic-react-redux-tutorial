@@ -1,0 +1,48 @@
+{
+  "name": "isomorphic-react-redux-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --verbose --colors --display-error-details --config webpack/prod.config.js",
+    "postinstall": "npm run build",
+    "dev": "concurrently --kill-others \"npm run dev-api\" \"npm run dev-server\" \"npm run webpack-dev-server\"",
+    "dev-api": "NODE_ENV=development nodemon --exec babel-node ./bin/api.js",
+    "dev-server": "NODE_ENV=development nodemon --exec babel-node ./bin/server.js",
+    "webpack-dev-server": "NODE_ENV=development babel-node ./bin/webpack-dev-server.js",
+    "start": "concurrently --kill-others \"npm run start-api\" \"npm run start-server\"",
+    "start-api": "NODE_ENV=production babel-node ./bin/api.js",
+    "start-server": "NODE_ENV=production babel-node ./bin/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmadalsajid/isomorphic-react-redux-tutorial.git"
+  },
+  "author": "Ahmad Al-Sajid <ahmadalsajid@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ahmadalsajid/isomorphic-react-redux-tutorial/issues"
+  },
+  "homepage": "https://github.com/ahmadalsajid/isomorphic-react-redux-tutorial#readme",
+  "devDependencies": {
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "eslint": "^3.12.1",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
+    "webpack-dev-middleware": "^1.8.4",
+    "webpack-hot-middleware": "^2.13.2"
+  },
+  "dependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-loader": "^6.2.9",
+    "concurrently": "^3.1.0",
+    "express": "^4.14.0",
+    "http-proxy": "^1.16.2",
+    "webpack": "^1.14.0"
+  }
+}
